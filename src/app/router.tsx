@@ -1,5 +1,8 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+
+// Must match vite.config.ts `base` — ensures routing works on GitHub Pages
+const BASE_PATH = import.meta.env.BASE_URL;
 import { MainLayout } from './layout/MainLayout';
 
 // Lazy load features
@@ -12,7 +15,7 @@ const RegionDetailPage = React.lazy(() => import('../features/territorial/pages/
 
 export const Router: React.FC = () => {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={BASE_PATH}>
       <Routes>
         <Route path="/" element={<MainLayout />}>
           <Route index element={<Navigate to="/informe" replace />} />
