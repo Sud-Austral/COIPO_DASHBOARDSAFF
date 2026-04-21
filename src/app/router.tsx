@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { MainLayout } from './layout/MainLayout';
 
 // Must match vite.config.ts `base` — ensures routing works on GitHub Pages
 const BASE_PATH = import.meta.env.BASE_URL;
-import { MainLayout } from './layout/MainLayout';
 
 // Lazy load features
 const InformePage = React.lazy(() => import('../features/executive/pages/InformePage'));
