@@ -7,7 +7,7 @@ import { useAggregates } from '../../../shared/hooks/useAggregates';
 import { useKpis } from '../../../shared/hooks/useKpis';
 import { fmt } from '../../../shared/utils/formatters';
 import { Card } from '../../../shared/components/ui/Card';
-import { Button } from '../../../shared/components/ui/Button';
+import { Button, cn } from '../../../shared/components/ui/Button';
 import { DonutChart } from '../../../shared/components/Charts';
 import { ProgressBar } from '../../../shared/components/StatusVisuals';
 import { MARCO_COLORS, GRUPOS } from '../../../mocks/constants';

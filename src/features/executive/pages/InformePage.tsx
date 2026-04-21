@@ -6,7 +6,7 @@ import { useFilterStore } from '../../../app/store/useFilterStore';
 import { useAggregates } from '../../../shared/hooks/useAggregates';
 import { useKpis } from '../../../shared/hooks/useKpis';
 import { fmt } from '../../../shared/utils/formatters';
-import { Button } from '../../../shared/components/ui/Button';
+import { Button, cn } from '../../../shared/components/ui/Button';
 import { Card } from '../../../shared/components/ui/Card';
 import { MultiLineChart, DonutChart } from '../../../shared/components/Charts';
 import { DataTable, Column } from '../../../shared/components/DataTable';

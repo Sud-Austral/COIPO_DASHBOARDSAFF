@@ -16,7 +16,7 @@ import { useFilterStore } from '../../../app/store/useFilterStore';
 import { useAggregates } from '../../../shared/hooks/useAggregates';
 import { useKpis } from '../../../shared/hooks/useKpis';
 import { fmt } from '../../../shared/utils/formatters';
-import { Button } from '../../../shared/components/ui/Button';
+import { Button, cn } from '../../../shared/components/ui/Button';
 import { Card } from '../../../shared/components/ui/Card';
 import { Select } from '../../../shared/components/ui/Select';
 import { DataTable } from '../../../shared/components/DataTable';

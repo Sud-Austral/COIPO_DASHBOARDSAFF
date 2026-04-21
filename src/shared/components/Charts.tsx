@@ -32,7 +32,7 @@ export const MultiLineChart = ({ data, series, categories }: { data: any[], seri
           <YAxis 
             axisLine={false} 
             tickLine={false} 
-            tick={{ fontSize: 10, fill: '#888', family: 'JetBrains Mono' }} 
+            tick={{ fontSize: 10, fill: '#888', fontFamily: 'JetBrains Mono' }} 
             tickFormatter={(v) => fmt.n(v)}
           />
           <Tooltip 
