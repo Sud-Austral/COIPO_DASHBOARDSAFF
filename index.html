@@ -22,7 +22,8 @@
         // Also handle the ?p= param from 404.html
         var search = window.location.search;
         if (search.slice(1,3) === 'p=') {
-          var decoded = '/' + search.slice(3).split('&')[0].replace(/~and~/g, '&');
+          var base = '/COIPO_DASHBOARDSAFF';
+          var decoded = base + '/' + search.slice(3).split('&')[0].replace(/~and~/g, '&');
           window.history.replaceState(null, null,
             decoded + (search.slice(1).indexOf('&q=') !== -1 ? ('?' + search.slice(1).split('&q=')[1].replace(/~and~/g, '&')) : '') +
             window.location.hash
