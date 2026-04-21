@@ -2,47 +2,48 @@
 // Unidad de Fiscalización Forestal (SAF) — 2021-2025
 
 const REGIONES = [
-  { cod: 'III',  nombre: 'Atacama',       lat: -27.4 },
-  { cod: 'IV',   nombre: 'Coquimbo',      lat: -29.9 },
-  { cod: 'V',    nombre: 'Valparaíso',    lat: -33.0 },
-  { cod: 'RM',   nombre: 'Metropolitana', lat: -33.5 },
-  { cod: 'VI',   nombre: "O'Higgins",     lat: -34.2 },
-  { cod: 'VII',  nombre: 'Maule',         lat: -35.4 },
-  { cod: 'XVI',  nombre: 'Ñuble',         lat: -36.6 },
-  { cod: 'VIII', nombre: 'Biobío',        lat: -37.0 },
-  { cod: 'IX',   nombre: 'Araucanía',     lat: -38.7 },
-  { cod: 'XIV',  nombre: 'Los Ríos',      lat: -39.8 },
-  { cod: 'X',    nombre: 'Los Lagos',     lat: -41.5 },
-  { cod: 'XI',   nombre: 'Aysén',         lat: -45.4 },
-  { cod: 'XII',  nombre: 'Magallanes',    lat: -53.2 },
+  { cod: 'III', nombre: 'Atacama', lat: -27.4 },
+  { cod: 'IV', nombre: 'Coquimbo', lat: -29.9 },
+  { cod: 'V', nombre: 'Valparaíso', lat: -33.0 },
+  { cod: 'RM', nombre: 'Metropolitana', lat: -33.5 },
+  { cod: 'VI', nombre: "O'Higgins", lat: -34.2 },
+  { cod: 'VII', nombre: 'Maule', lat: -35.4 },
+  { cod: 'XVI', nombre: 'Ñuble', lat: -36.6 },
+
+  { cod: 'VIII', nombre: 'Biobío', lat: -37.0 },
+  { cod: 'IX', nombre: 'Araucanía', lat: -38.7 },
+  { cod: 'XIV', nombre: 'Los Ríos', lat: -39.8 },
+  { cod: 'X', nombre: 'Los Lagos', lat: -41.5 },
+  { cod: 'XI', nombre: 'Aysén', lat: -45.4 },
+  { cod: 'XII', nombre: 'Magallanes', lat: -53.2 },
 ];
 
 const GRUPOS = [
-  { id: 'AVISO_701',      marco: 'DL 701',      nombre: 'Aviso ejecución faenas',       plazo: null, tipo: '—'      },
-  { id: 'PM_NM_701',      marco: 'DL 701',      nombre: 'Planes y normas de manejo',    plazo: 120,  tipo: 'Corrido' },
-  { id: 'OTROS_701',      marco: 'DL 701',      nombre: 'Otros (calificación, etc.)',   plazo: 60,   tipo: 'Corrido' },
-  { id: 'AVISO_BN',       marco: 'Ley 20.283',  nombre: 'Avisos e informes BN',         plazo: 60,   tipo: 'Hábil'   },
-  { id: 'BONOS_BN',       marco: 'Ley 20.283',  nombre: 'Bonificaciones Art. 22',       plazo: 90,   tipo: 'Hábil'   },
-  { id: 'PM_NM_20283',    marco: 'Ley 20.283',  nombre: 'Planes y normas 20.283',       plazo: 90,   tipo: 'Hábil'   },
-  { id: 'OTROS_BN',       marco: 'Ley 20.283',  nombre: 'Otros bosque nativo',          plazo: 60,   tipo: 'Hábil'   },
-  { id: 'DS_490',         marco: 'DS 490',      nombre: 'Control productos forestales', plazo: null, tipo: '—'      },
+  { id: 'AVISO_701', marco: 'DL 701', nombre: 'Aviso ejecución faenas', plazo: null, tipo: '—' },
+  { id: 'PM_NM_701', marco: 'DL 701', nombre: 'Planes y normas de manejo', plazo: 120, tipo: 'Corrido' },
+  { id: 'OTROS_701', marco: 'DL 701', nombre: 'Otros (calificación, etc.)', plazo: 60, tipo: 'Corrido' },
+  { id: 'AVISO_BN', marco: 'Ley 20.283', nombre: 'Avisos e informes BN', plazo: 60, tipo: 'Hábil' },
+  { id: 'BONOS_BN', marco: 'Ley 20.283', nombre: 'Bonificaciones Art. 22', plazo: 90, tipo: 'Hábil' },
+  { id: 'PM_NM_20283', marco: 'Ley 20.283', nombre: 'Planes y normas 20.283', plazo: 90, tipo: 'Hábil' },
+  { id: 'OTROS_BN', marco: 'Ley 20.283', nombre: 'Otros bosque nativo', plazo: 60, tipo: 'Hábil' },
+  { id: 'DS_490', marco: 'DS 490', nombre: 'Control productos forestales', plazo: null, tipo: '—' },
 ];
 
 const ANIOS = [2021, 2022, 2023, 2024, 2025];
 
 const ANALISTAS = [
-  'P. Araya',   'M. Benítez', 'C. Cárdenas', 'L. Díaz',    'R. Espinoza',
-  'T. Fuentes', 'G. González','S. Henríquez','N. Inostroza','V. Jara',
-  'E. Köhler',  'D. Lagos',   'A. Morales',  'B. Navarro',
+  'P. Araya', 'M. Benítez', 'C. Cárdenas', 'L. Díaz', 'R. Espinoza',
+  'T. Fuentes', 'G. González', 'S. Henríquez', 'N. Inostroza', 'V. Jara',
+  'E. Köhler', 'D. Lagos', 'A. Morales', 'B. Navarro',
 ];
 const ABOGADOS = [
-  'Abg. Acosta', 'Abg. Bravo',  'Abg. Cortés', 'Abg. Donoso',
-  'Abg. Errázuriz','Abg. Figueroa','Abg. Guzmán','Abg. Hurtado',
+  'Abg. Acosta', 'Abg. Bravo', 'Abg. Cortés', 'Abg. Donoso',
+  'Abg. Errázuriz', 'Abg. Figueroa', 'Abg. Guzmán', 'Abg. Hurtado',
 ];
 
 // Mulberry32 PRNG — reproducible mock data
 function mulberry32(seed) {
-  return function() {
+  return function () {
     let t = seed += 0x6D2AE529;
     t = Math.imul(t ^ t >>> 15, t | 1);
     t ^= t + Math.imul(t ^ t >>> 7, t | 61);
@@ -63,8 +64,8 @@ function genDataset() {
     for (let i = 0; i < total; i++) {
       // peso por región (centro-sur concentra)
       const regPesos = REGIONES.map((r, idx) => {
-        if (['VII','XVI','VIII','IX','XIV','X'].includes(r.cod)) return 12;
-        if (['VI','RM','XI'].includes(r.cod)) return 6;
+        if (['VII', 'XVI', 'VIII', 'IX', 'XIV', 'X'].includes(r.cod)) return 12;
+        if (['VI', 'RM', 'XI'].includes(r.cod)) return 6;
         return 3;
       });
       const reg = pickWeighted(REGIONES, regPesos, rnd);
@@ -79,10 +80,10 @@ function genDataset() {
 
       let fueraPlazo = 0;
       if (grupo.plazo != null) {
-        const efectivo = grupo.tipo === 'Hábil' ? diasTotal * (5/7) : diasTotal;
+        const efectivo = grupo.tipo === 'Hábil' ? diasTotal * (5 / 7) : diasTotal;
         if (efectivo > grupo.plazo) fueraPlazo = 1;
         // Some regions run late more often
-        if (['XII','XI','III'].includes(reg.cod) && rnd() < 0.25) fueraPlazo = 1;
+        if (['XII', 'XI', 'III'].includes(reg.cod) && rnd() < 0.25) fueraPlazo = 1;
       }
 
       // Bonificaciones sólo en BONOS_BN
@@ -127,9 +128,9 @@ function pickWeighted(arr, pesos, rnd) {
 // Aggregations
 function aggregate(data, { anio, region, marco, analista, abogado } = {}) {
   let rows = data;
-  if (anio && anio !== 'all')       rows = rows.filter(r => r.anio === anio);
-  if (region && region !== 'all')   rows = rows.filter(r => r.region === region);
-  if (marco && marco !== 'all')     rows = rows.filter(r => r.marco === marco);
+  if (anio && anio !== 'all') rows = rows.filter(r => r.anio === anio);
+  if (region && region !== 'all') rows = rows.filter(r => r.region === region);
+  if (marco && marco !== 'all') rows = rows.filter(r => r.marco === marco);
   if (analista && analista !== 'all') rows = rows.filter(r => r.analista === analista);
   if (abogado && abogado !== 'all') rows = rows.filter(r => r.abogado === abogado);
   return rows;
