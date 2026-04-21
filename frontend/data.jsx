@@ -9,7 +9,6 @@ const REGIONES = [
   { cod: 'VI', nombre: "O'Higgins", lat: -34.2 },
   { cod: 'VII', nombre: 'Maule', lat: -35.4 },
   { cod: 'XVI', nombre: 'Ñuble', lat: -36.6 },
-
   { cod: 'VIII', nombre: 'Biobío', lat: -37.0 },
   { cod: 'IX', nombre: 'Araucanía', lat: -38.7 },
   { cod: 'XIV', nombre: 'Los Ríos', lat: -39.8 },
