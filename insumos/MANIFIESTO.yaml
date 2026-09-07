@@ -1,0 +1,76 @@
+# Manifiesto derivado del codigo: manifiestos, datos, semillas y configuracion.
+archivos:
+  - ruta: package.json
+    sha256: "[PENDIENTE] sin calcular"
+    origen: "[PENDIENTE] quien lo entrego y cuando"
+    contiene_pii: "[VERIFICAR] la evidencia no reporta patrones ni conteos de dato personal en esta ruta"
+    puede_versionarse: true
+    uso: "[INFERIDO] unico manifiesto de dependencias del repositorio; declara 18 dependencias y las tareas de desarrollo, construccion y publicacion [package.json:7], [package.json:8]"
+
+  - ruta: src/mocks/data.ts
+    sha256: "[PENDIENTE] sin calcular"
+    origen: "[PENDIENTE] quien lo entrego y cuando"
+    contiene_pii: "[VERIFICAR] vive en una carpeta de datos simulados, lo que cambia la probabilidad de que sea sintetico, pero no lo prueba; la evidencia no entrega patrones ni conteos, asi que no se afirma ni se descarta"
+    puede_versionarse: true
+    uso: "[INFERIDO] origen de los datos que muestra hoy la aplicacion; es la fuente que reemplazaria una conexion real [src/shared/api/resoluciones.ts]"
+
+  - ruta: src/mocks/constants.ts
+    sha256: "[PENDIENTE] sin calcular"
+    origen: "[PENDIENTE] quien lo entrego y cuando"
+    contiene_pii: "[VERIFICAR] declara listas llamadas ANALISTAS y ABOGADOS [src/mocks/constants.ts]; si esas listas contienen nombres de personas hay dato personal, aunque el archivo viva en una carpeta de datos simulados. No se transcribe ningun valor. Revisar antes de publicar: la evidencia declara que este repositorio no es privado"
+    puede_versionarse: true
+    uso: "[INFERIDO] catalogos del dominio que alimentan filtros y agrupaciones: regiones, grupos, anios y perfiles"
+
+  - ruta: notebook/intento1.py
+    sha256: "[PENDIENTE] sin calcular"
+    origen: "[PENDIENTE] quien lo entrego y cuando"
+    contiene_pii: "[VERIFICAR] la evidencia no reporta patrones ni conteos de dato personal en esta ruta; conviene revisar si el codigo lleva rutas o credenciales de la fuente real"
+    puede_versionarse: true
+    uso: "[INFERIDO] tratamiento de datos fuera de la aplicacion web: carga, estandariza, clasifica, calcula fuera de plazo y exporta informe [notebook/intento1.py]"
+
+  - ruta: src/shared/api/resoluciones.ts
+    sha256: "[PENDIENTE] sin calcular"
+    origen: "[PENDIENTE] quien lo entrego y cuando"
+    contiene_pii: "[VERIFICAR] la evidencia no reporta patrones ni conteos de dato personal en esta ruta"
+    puede_versionarse: true
+    uso: "[INFERIDO] unico punto donde la aplicacion obtiene resoluciones; es donde se cambiaria el origen de datos"
+
+  - ruta: vite.config.ts
+    sha256: "[PENDIENTE] sin calcular"
+    origen: "[PENDIENTE] quien lo entrego y cuando"
+    contiene_pii: "[VERIFICAR] la evidencia no reporta patrones ni conteos de dato personal en esta ruta"
+    puede_versionarse: true
+    uso: "[INFERIDO] configuracion de construccion del sitio [vite.config.ts:1]"
+
+  - ruta: tailwind.config.js
+    sha256: "[PENDIENTE] sin calcular"
+    origen: "[PENDIENTE] quien lo entrego y cuando"
+    contiene_pii: "[VERIFICAR] la evidencia no reporta patrones ni conteos de dato personal en esta ruta"
+    puede_versionarse: true
+    uso: "[INFERIDO] configuracion de estilos declarada como dependencia [package.json:30]"
+
+  - ruta: tsconfig.json
+    sha256: "[PENDIENTE] sin calcular"
+    origen: "[PENDIENTE] quien lo entrego y cuando"
+    contiene_pii: "[VERIFICAR] la evidencia no reporta patrones ni conteos de dato personal en esta ruta"
+    puede_versionarse: true
+    uso: "[INFERIDO] configuracion del compilador que usa la tarea de construccion [package.json:8]"
+
+  - ruta: .github/workflows/deploy-pages.yml
+    sha256: "[PENDIENTE] sin calcular"
+    origen: "[PENDIENTE] quien lo entrego y cuando"
+    contiene_pii: "[VERIFICAR] la evidencia no reporta patrones ni conteos de dato personal; conviene revisar si referencia secretos del repositorio"
+    puede_versionarse: true
+    uso: "[INFERIDO] publicacion automatizada del sitio"
+
+  - ruta: .github/workflows/readme.yml
+    sha256: "[PENDIENTE] sin calcular"
+    origen: "[PENDIENTE] quien lo entrego y cuando"
+    contiene_pii: "[VERIFICAR] la evidencia no reporta patrones ni conteos de dato personal en esta ruta"
+    puede_versionarse: true
+    uso: "[INFERIDO] automatizacion de documentacion del repositorio"
+
+hallazgos:
+  - "[VERIFICAR] src/mocks/constants.ts declara ANALISTAS y ABOGADOS. Si son nombres de personas, contiene_pii pasa a true, puede_versionarse pasa a false y la ruta tendria que estar en .gitignore anclada con barra inicial. Hoy no consta que lo este, y no se edito ningun .gitignore para averiguarlo."
+  - "[INFERIDO] La aplicacion se alimenta de datos simulados [src/mocks/data.ts]; no hay ninguna fuente real conectada. Cualquier lectura de los indicadores que muestra hoy es una lectura de datos inventados por el propio repositorio."
+  - "[INFERIDO] notebook/intento1.py no tiene manifiesto de dependencias: el listado de dependencias de Python viene vacio."
