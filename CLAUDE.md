@@ -1,36 +1,30 @@
 # CLAUDE.md — COIPO_DASHBOARDSAFF
 
-## ¿Qué es este proyecto?
-Aplicación React profesional para el seguimiento de resoluciones forestales, cumplimiento de plazos y análisis territorial. - **Framework**: Vite + React 18 + TypeScript - **Estilos**: TailwindCSS (Arquitectura basada en utilidades y diseño premium)
+## Qué es
+Dashboard React (Vite + TypeScript + TailwindCSS) para seguimiento de resoluciones forestales, cumplimiento de plazos y análisis territorial de la Subgerencia de Administración y Fiscalización de CONAF. **Hoy trabaja solo con datos simulados** (`src/mocks/`). Detalle en [`README.md`](README.md); problema y solución en [`insumos/`](insumos/).
 
----
+## Comandos (VERIFICADOS en `package.json`)
+- `npm run dev` — desarrollo
+- `npm run build` — `tsc && vite build` (es lo que corre el CI de GitHub Pages)
+- `npm run preview` — sirve `dist/`
+- **No existen** `npm test` ni pruebas. `npm run lint` está declarado pero `eslint` no está en las dependencias y no hay configuración: hoy falla. No inventar ni dar por pasados tests o lint.
 
-## Comandos de Referencia Rápida
-- **Iniciar servidor de desarrollo:** `npm run dev`
-- **Compilar para producción:** `npm run build`
-- **Ejecutar pruebas (Tests):** `npm test`
-- **Lint / Formateo:** `npm run lint`
+## Estructura
+- `src/app/` — router (`router.tsx`, rutas `/informe`, `/control`, `/territorios`, `/territorios/:codigo`), layouts, `providers.tsx`, `store/useFilterStore.ts` (Zustand persistido en localStorage, clave `dashboard-filters`; filtros año, región, marco, analista, abogado).
+- `src/features/` — `executive` (informe), `control` (cockpit), `territorial` (ranking y detalle de región).
+- `src/shared/` — `api/resoluciones.ts` (único punto de carga de datos), `hooks/useKpis.ts` y `useAggregates.ts`, `components/` (gráficos Recharts, tabla, UI), `types/`, `utils/`.
+- `src/mocks/` — `data.ts` (generador determinista `mulberry32`, semilla 42) y `constants.ts` (regiones, grupos, marcos, listas de analistas y abogados de prueba).
+- `notebook/intento1.py` — guion pandas independiente; no es parte de la app.
 
-## Tecnología y Stack
-- **Frontend:** React / Node.js (Vite: True, TS: True, React: True)
+## Trampas
+- `vite.config.ts` fija `base: '/COIPO_DASHBOARDSAFF/'` y el router lo usa como `basename`: deben coincidir con el nombre del repo para GitHub Pages.
+- `public/404.html` existe para el enrutado de SPA en Pages.
+- Conectar datos reales se hace solo en `fetchResoluciones`; el tipo `Resolucion` de `shared/types` es el contrato.
+- Las listas `ANALISTAS` y `ABOGADOS` de `mocks/constants.ts`: revisar que no contengan nombres reales antes de publicar (el repo no es privado); no copiarlas a documentos.
+- No hay control de acceso en el código: no asumir roles.
 
-## Guía de Estilo y Convenciones
-- **Idioma del código:** Inglés para infraestructura, nombres de variables y funciones. Español para comentarios de negocio e interfaz de usuario.
-- **Frontend JavaScript/TypeScript:** Estilo `camelCase` para variables y funciones, `PascalCase` para componentes React y tipos. Cumplir con ESLint/Prettier.
-- **Trazabilidad:** Cada cambio debe rastrearse directamente a un requerimiento o corrección solicitada.
+## Convenciones
+Código en inglés, textos de interfaz y comentarios de negocio en español; `PascalCase` para componentes y tipos, `camelCase` para variables y funciones. Cambios quirúrgicos, sin refactorizaciones no pedidas.
 
-
-## Directrices de Desarrollo (Claude Code)
-
-### 1. Pensar antes de Codificar
-- **No asumas:** Si hay ambigüedad o múltiples interpretaciones, pregunta antes de codificar.
-- **Simplifica:** Elige el camino más simple y limpio. Evita la sobreingeniería y abstracciones innecesarias.
-
-### 2. Cambios Quirúrgicos
-- Modifica únicamente las líneas necesarias para cumplir el objetivo.
-- No realices refactorizaciones no solicitadas en código adyacente.
-- Respeta estrictamente el formato y estilo del archivo existente.
-
-### 3. Ejecución Orientada a Objetivos
-- Define el criterio de éxito para cada cambio.
-- Comprueba que tus modificaciones no introduzcan errores de compilación o de linting.
+## Qué no tocar
+`.github/workflows/readme.yml` (flujo de la flota) y los documentos de `insumos/`, salvo para actualizarlos con evidencia.
