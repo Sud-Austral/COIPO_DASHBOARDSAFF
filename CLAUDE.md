@@ -7,6 +7,7 @@ Dashboard React (Vite + TypeScript + TailwindCSS) para seguimiento de resolucion
 - `npm run dev` — desarrollo
 - `npm run build` — `tsc && vite build` (es lo que corre el CI de GitHub Pages)
 - `npm run preview` — sirve `dist/`
+- No hay `package-lock.json`: el CI usa `npm install`, así que las versiones se resuelven en cada build.
 - **No existen** `npm test` ni pruebas. `npm run lint` está declarado pero `eslint` no está en las dependencias y no hay configuración: hoy falla. No inventar ni dar por pasados tests o lint.
 
 ## Estructura
@@ -27,4 +28,4 @@ Dashboard React (Vite + TypeScript + TailwindCSS) para seguimiento de resolucion
 Código en inglés, textos de interfaz y comentarios de negocio en español; `PascalCase` para componentes y tipos, `camelCase` para variables y funciones. Cambios quirúrgicos, sin refactorizaciones no pedidas.
 
 ## Qué no tocar
-`.github/workflows/readme.yml` (flujo de la flota) y los documentos de `insumos/`, salvo para actualizarlos con evidencia.
+Los documentos de `insumos/`, salvo para actualizarlos con evidencia. El antiguo `.github/workflows/readme.yml` (generador `coipo_aireadme` de la flota) se eliminó en el commit 9e4de13: el README ya se edita a mano.
