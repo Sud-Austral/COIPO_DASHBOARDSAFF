@@ -45,11 +45,11 @@ npm run build    # tsc && vite build -> dist/
 npm run preview  # sirve dist/
 ```
 
-No ejecuté estos comandos para esta actualización de documentación.
+No comprobado (2026-11-24): no ejecuté `npm install` ni `npm run build` en la revisión de documentación; el repo no tiene `package-lock.json`.
 
 ## Despliegue
 
-Push a `main` -> `.github/workflows/deploy-pages.yml` (Node 20, `npm install`, `npm run build`) publica `dist/` en GitHub Pages. `vite.config.ts` fija `base: '/COIPO_DASHBOARDSAFF/'` y el router usa ese valor como `basename`; si se cambia el nombre del repo hay que actualizar ambos. `.github/workflows/readme.yml` regenera documentación con el flujo de la flota COIPO.
+Push a `main` -> `.github/workflows/deploy-pages.yml` (Node 20, `npm install`, `npm run build`) publica `dist/` en GitHub Pages. `vite.config.ts` fija `base: '/COIPO_DASHBOARDSAFF/'` y el router usa ese valor como `basename`; si se cambia el nombre del repo hay que actualizar ambos. El único workflow es ese; el generador de README de la flota (`readme.yml`) se eliminó.
 
 ## Datos: hoy son simulados
 
